@@ -1,4 +1,11 @@
 Este repositório armazena os códigos usados nos estudos sobre Kuberentes. Nesses estudos foi seguido o material do curso da Alura Kuberentes: Pods, Services e ConfigMaps (link 1).
+O cursos consiste em ciar uma aplicação web de um portal de notícias usando Kubernetes e containers com imagens prontas.
+
+Durante o curso foi feito:
+
+1 - Criação de um cluter local com minikube
+2 - Criação de Pods e Serviços 
+3 - Criação e uso de ConfigMaps
 
 O material escrito durante o curso está no drive (link 2)
 
