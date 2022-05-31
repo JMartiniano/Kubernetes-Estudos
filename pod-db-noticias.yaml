@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-noticias
+  labels:
+    app: db-noticias
+spec:
+  containers:
+    - name: db-noticias-container
+      image: aluracursos/mysql-db:1
+      ports:
+        - containerPort: 3306 # Porta onde roda o banco
+      
+      ##Toda a parte de configuração de ambiente pode ser feita aqui com o código abaixo (maneira amarrada), mas pode ser feita também pelo ConfigMap
+      #env:
+      #  - name: "MYSQL_ROOT_PASSWORD"
+      #    value: "q1w2e3r4"
+      #  - name: "MYSQL_DATABASE"
+      #    value: "empresa"
+      #  - name: "MYSQL_PASSWORD"
+      #    value: "q1w2e3r4"
+      
+      ## Importando variáveis do ConfigMap
+      #env:
+      #  - name: MYSQL_ROOT_PASSWORD # Nome da variável de ambiente
+      #    valueFrom: # Valor vem de fora
+      #      configMapKeyRef: # Vai passar uma referência de um ConfigMap
+      #        name: db-configmap # O nome do ConfigMap
+      #        key: MYSQL_ROOT_PASSWORD # A chave da variável que quer importar
+
+      ## Importando o arquivo completo de ConfigMap
+      envFrom:
+        - configMapRef:
+           name: db-configmap
+
+#Mais sobre ConfigMap: https://docs.google.com/document/d/1oMibbIMM-AN-qsRFEeqqzrjp2b7gQtYGLNhSvAt57o0/edit?usp=sharing

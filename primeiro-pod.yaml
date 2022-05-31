@@ -8,7 +8,7 @@ metadada:
 # Difiniando as especificações:
 spec:
   # Quero que o pod contenha N containers
-  container:
+  containers:
     # Definiando o nome e a imagem do primeiro container, caso queira um segundo começa outro bloco de nome e imagem, o - define o começo do bloco de um container
     - name: nginx-container
       image: nginx:latest

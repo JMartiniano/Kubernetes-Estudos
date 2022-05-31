@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flask-app-cadastro
+  labels:
+    app: flask-cadastro
+spec:
+  containers:
+    - name: app-flask
+      image: nginx:latest
