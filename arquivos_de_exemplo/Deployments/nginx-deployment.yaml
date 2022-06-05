@@ -1,0 +1,21 @@
+# Para entender como um Deployment funciona, consultar os documentos de estudo.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment # Nome do Deployment
+spec:
+  replicas: 3 #Quantidade de Pods que serão criados
+  template: #Modelo para a criação dos Pods
+    metadata:
+      name: nginx-pod
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+  selector: #Selecionar o modelo que deve ser usado no Apply
+    matchLabels:
+      app: nginx-pod
