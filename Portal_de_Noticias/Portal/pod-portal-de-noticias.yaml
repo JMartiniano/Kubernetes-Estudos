@@ -10,6 +10,6 @@ spec:
       image: aluracursos/portal-noticias:1
       ports:
         - containerPort: 80
-      envFrom:
-        - configMapRef:
-            name: portal-configmap
+      envFrom: # Busca os valores da variável de ambiente de um configMap
+        - configMapRef: # Referencia do configMap
+            name: portal-configmap # Usa o nome do configMap como refêrencia

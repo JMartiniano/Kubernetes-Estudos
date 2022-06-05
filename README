@@ -1,5 +1,6 @@
 Este repositório armazena os códigos usados nos estudos sobre Kuberentes. Nesses estudos foi seguido o material do curso da Alura Kuberentes: Pods, Services e ConfigMaps (link 1).
 O cursos consiste em ciar uma aplicação web de um portal de notícias usando Kubernetes e containers com imagens prontas.
+E do curso da Alura Kubernetes: Deployments, Volumes e Escalabilidade (link 2). O cursos consistem em continuar a aplicação criada no curso um aplicando novos conceitos.
 
 * Durante o curso foi feito:
   
@@ -7,7 +8,7 @@ O cursos consiste em ciar uma aplicação web de um portal de notícias usando K
   2 - Criação de Pods e Serviços 
   3 - Criação e uso de ConfigMaps
 
-O material escrito durante o curso está no drive (link 2)
+O material escrito durante o curso está no drive (link 3)
 
 * Organização 
 
@@ -16,4 +17,5 @@ Os arquivos de configuração (yaml) forão separados em pastas para melhor orga
 Links:
 
   1 - Alura Kuberentes: Pods, Services e ConfigMaps - https://cursos.alura.com.br/course/kubernetes-pods-services-configmap
-  2 - Drive do material - https://drive.google.com/drive/folders/16jvZa5dNcxrJcW16x8k-GD3us1UREuDd?usp=sharing
+  2 - Alura Kubernetes: Deployments, Volumes e Escalabilidade - https://cursos.alura.com.br/devops-jose-ferreira4-1640185086050-p271413
+  3 - Drive do material - https://drive.google.com/drive/folders/16jvZa5dNcxrJcW16x8k-GD3us1UREuDd?usp=sharing
