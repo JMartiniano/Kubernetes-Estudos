@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: pod-portal-de-noticias
   labels:
-    app: portal
+    app: portal-noticias
 spec:
   containers:
     - name: portal-de-noticias
