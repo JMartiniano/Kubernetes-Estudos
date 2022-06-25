@@ -6,7 +6,7 @@ spec:
   containers:
     - name: nginx-container
       image: nginx:latest
-      volumeMounts: # Bloco de montar um volume dentro do container
+      volumeMounts: # Bloco de montar um volume dentro do container (Faz por último)
         - mountPath: /volume-dentro-do-container # Caminho dentro do container onde o volume será montado
           name: primeiro-volume #Nome do volume que deve ser montado no caminha passado acima
     - name: jenkins-container
@@ -14,11 +14,12 @@ spec:
       volumeMounts:
         - mountPath: /volume-dentro-do-container
           name: primeiro-volume
-  volumes: #Bloco onde criamos os volumes deste Pod
+  volumes: #Bloco onde criamos os volumes deste Pod (Faz antes do VolumeMounts)
     - name: primeiro-volume # Nome do volume
       hostPath: # Bloco de configuração do volume
         path: /home/primeiro-volume/ # Caminho na máquina host
-        type: DirectoryOrCreate # Tipo do arquivo
+        type: DirectoryOrCreate # Tipo do arquivo (Este tipo já cria o caminho caso não exista)
+        
         ## IMPORTANTE: No caso do Linux como ambiente de estudo, o cluster kubernetes está rodando dentro de uma VM que foi criada pelo minikube, ou seja, o caminho da máquina host deve ser criado dentro da máquina host do minikube, para isso acessamos a máquina virtual usando com comando "$ minikube ssh" e com os comandos comuns do Linux podemos criar o caminho. 
         # Para contornar a necessidade do acesso à máquina virtual é possível o usar o tipo do volume com o valor DirectoryOrCreate, assim o kubernetes cria o caminho automaticamente caso ele não exista.
 
