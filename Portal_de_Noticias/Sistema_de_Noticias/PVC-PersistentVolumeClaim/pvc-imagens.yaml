@@ -1,0 +1,12 @@
+# Persistent Volume Claim para os arquivos de imagens do sistema de notícias
+
+apiVersion: v1
+kind: PesistentVolumeClaim
+metadata:
+  name: pvc-imagens
+spec:
+  accessModes:
+    - ReadWriteOnce #Apenas um Pod por vez pode ler e escrever, ver doumentação para mais detalhes 
+  resources: # Especifica os recursos que será usados
+    requests: # Solicita recruso
+      storage: 10Gi # Solicita 10GB de armazenamento

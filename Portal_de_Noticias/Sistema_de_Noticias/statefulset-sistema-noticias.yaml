@@ -1,0 +1,37 @@
+#Todo o arquivo é igual ao do Deployment
+apiVersion: apps/v1
+kind: StatefulSet #Muda para o tipo correto
+metadata:
+  name: sistema-de-noticias-statefulset
+spec:
+  replicas: 1 #Quantidade de Pods
+  template: # Criando o Pod
+    metadata:
+      labels:
+        app: sistema-noticias
+      name: sistema-noticias-statefulset
+    spec:
+      containers:
+        - name: sistema-de-noticias-container
+          image: aluracursos/sistema-noticias:1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: sistema-configmap
+          volumeMounts: # Monta os volumes criados nos PVC e importados aqui nos volumes
+            - name: imagens # Nome do primeiro volume 
+              mountPath: /var/www/html/uploads # Caminho para montar dentro do container
+            - name: sessão # Nome do segundo volume 
+              mountPath: /tmp
+      volumes: # Montando os volumes criados pelos arquivos de PVC
+        - name: imagens #Nome do primeiro volume
+          persistentVolumeClaim: # O volume será um PVC
+            claimName: pvc-imagens # O PVC que deve ser usado tem esse nome (o do arquivo)
+        - name: session # Nome do segundo volume
+          persistentVolumeClaim: # O volume será um PVC
+            claimName: pvc-session # O PVC que dever ser usado tem esse nome (o do arquivo)
+  selector: #Selecionar o template que o StatefulSet usará, deve ser o criado acima
+    matchLabels:
+      app: sistema-noticias
+  serviceName: svc-sistema-noticias #Nome do serviço que será usado com o Pod.

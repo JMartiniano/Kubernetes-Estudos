@@ -1,0 +1,25 @@
+#Todo o arquivo é igual ao do Deployment
+apiVersion: apps/v1
+kind: StatefulSet #Muda para o tipo correto
+metadata:
+  name: exemplo-statefulset
+spec:
+  replicas: 1 #Quantidade de Pods
+  template: # Criando o Pod
+    metadata:
+      labels:
+        app: exemplo-statefulset
+      name: exemplo-statefulset
+    spec:
+      containers:
+        - name: exemplo-containe
+          image: aluracursos/exemplo-statefulset:1
+          ports:
+            - containerPOrt: 80
+          envFrom:
+            - configMapRef:
+                name: sistema-configmap
+  selector: #Selecionar o template que o StatefulSet usará, deve ser o criado acima
+    matchLables:
+      app: exemplo-statefulset
+  serviceName: svc-exemplo-statefulset #Nome do serviço que será usado com o Pod.

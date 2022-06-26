@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nomeDoVolume-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce #Apenas um Pod por vez pode ler e escrever, ver doumentação para mais detalhes 
+  resources: # Especifica os recursos que será usados
+    requests: # Solicita recruso
+      storage: 10Gi # Solicita 10GB de armazenamento
